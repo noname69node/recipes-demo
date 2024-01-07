@@ -1,0 +1,10 @@
+.logo img {
+    vertical-align: unset;
+}
+
+.logo a {
+    font-size: 28px;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+}

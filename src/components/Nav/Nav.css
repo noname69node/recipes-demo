@@ -1,0 +1,14 @@
+.navbartop ul {
+    font-size: 20px;
+    align-items: center;
+}
+
+.navbartop ul li {
+    list-style: none;
+}
+
+.navbartop ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+}

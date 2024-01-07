@@ -1,0 +1,19 @@
+.card {
+
+    border-radius: 30px !important;
+    border: none !important;
+}
+
+.card img {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.card .card-info {
+    height: 40px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.70);
+}

@@ -1,0 +1,11 @@
+.about {
+    height: 400px;
+    background-image: url("../../img/about.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.about .row {
+    height: 400px !important;
+}
