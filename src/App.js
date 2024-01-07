@@ -4,6 +4,9 @@ import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Recipe from "./components/Recipe/Recipe";
+import About from "./components/About/About";
+import Comunity from "./components/Comunity/Comunity";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -11,7 +14,12 @@ function App() {
       <Header></Header>
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/recipe" element={<Recipe />} />
+        <Route path="/recipes" element={<Recipe />}>
+          <Route path="recipe/:id" element={<Recipe />} />
+        </Route>
+        <Route path="/about" element={<About />} />
+        <Route path="/comunity" element={<Comunity />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>
     </>

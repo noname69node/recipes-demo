@@ -17,3 +17,7 @@
     bottom: 0;
     background: rgba(255, 255, 255, 0.70);
 }
+
+.card .card-body a {
+    color: #f79f1a
+}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Nav.css";
 import React from "react";
 
@@ -7,24 +7,24 @@ const Nav = () => {
     <div className="navbartop" id="navbar">
       <ul className="list-reset gap-5 d-none d-md-flex">
         <li className="">
-          <Link className="" to="/">
+          <NavLink className="" to="/">
             Home
-          </Link>
+          </NavLink>
         </li>
         <li className="">
-          <Link className="" to="/">
+          <NavLink className="" to="/category">
             Category
-          </Link>
+          </NavLink>
         </li>
         <li className="">
-          <Link className="" to="/">
+          <NavLink className="" to="/comunity">
             Comunity
-          </Link>
+          </NavLink>
         </li>
         <li className="">
-          <Link className="" to="/">
+          <NavLink className="" to="/about">
             About
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>

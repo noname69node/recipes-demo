@@ -1,25 +1,27 @@
+import "./Footer.css";
 import React from "react";
 import Subscribe from "../Subscribe/Subscribe";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Logo from "../Logo/Logo";
 
 const Footer = () => {
   return (
-    <footer className="container d-flex flex-row justify-content-between">
+    <footer className="footer container d-flex flex-row justify-content-between mb-5">
       <div className="links d-flex flex-row flex-fill">
         <div className="menu flex-fill">
           <h4>Menu</h4>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <Link to="/">Recipes</Link>
+              <NavLink to="/recipes">Recipes</NavLink>
             </li>
             <li>
-              <Link to="/">Comunity</Link>
+              <NavLink to="/comunity">Comunity</NavLink>
             </li>
             <li>
-              <Link to="/">About Us</Link>
+              <NavLink to="/about">About Us</NavLink>
             </li>
           </ul>
         </div>
@@ -27,10 +29,10 @@ const Footer = () => {
           <h4>Categories</h4>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">1</Link>
             </li>
             <li>
-              <Link to="/">Recipes</Link>
+              <Link to="/">2</Link>
             </li>
           </ul>
         </div>
@@ -38,10 +40,10 @@ const Footer = () => {
           <h4>Social media</h4>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Facebook</Link>
             </li>
             <li>
-              <Link to="/">Recipes</Link>
+              <Link to="/">Instagram</Link>
             </li>
           </ul>
         </div>

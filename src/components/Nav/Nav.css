@@ -9,6 +9,10 @@
 
 .navbartop ul li a {
     text-decoration: none;
-    color: black;
     font-weight: 400;
+    color: black
+}
+
+.navbartop ul li a.active {
+    color: #046e1b;
 }
