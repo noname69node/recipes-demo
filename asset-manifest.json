@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/recipes/static/css/main.29f5ce1a.css",
-    "main.js": "/recipes/static/js/main.0876bbc0.js",
-    "static/media/about.png": "/recipes/static/media/about.cdfd2caef45a8d7aa6f1.png",
-    "static/media/main_logo.png": "/recipes/static/media/main_logo.b8dc4390efe4a926f9dc.png",
-    "static/media/1548772327.jpg": "/recipes/static/media/1548772327.18e757039eb917dc07a5.jpg",
-    "static/media/logo.svg": "/recipes/static/media/logo.d186ce0d2c86435333becee4d72bb56b.svg",
-    "index.html": "/recipes/index.html",
-    "main.29f5ce1a.css.map": "/recipes/static/css/main.29f5ce1a.css.map",
-    "main.0876bbc0.js.map": "/recipes/static/js/main.0876bbc0.js.map"
+    "main.css": "/recipes-demo/static/css/main.78e4beb4.css",
+    "main.js": "/recipes-demo/static/js/main.d672d8ce.js",
+    "static/media/about.png": "/recipes-demo/static/media/about.cdfd2caef45a8d7aa6f1.png",
+    "static/media/main_logo.png": "/recipes-demo/static/media/main_logo.b8dc4390efe4a926f9dc.png",
+    "static/media/1548772327.jpg": "/recipes-demo/static/media/1548772327.18e757039eb917dc07a5.jpg",
+    "static/media/logo.svg": "/recipes-demo/static/media/logo.d186ce0d2c86435333becee4d72bb56b.svg",
+    "index.html": "/recipes-demo/index.html",
+    "main.78e4beb4.css.map": "/recipes-demo/static/css/main.78e4beb4.css.map",
+    "main.d672d8ce.js.map": "/recipes-demo/static/js/main.d672d8ce.js.map"
   },
   "entrypoints": [
-    "static/css/main.29f5ce1a.css",
-    "static/js/main.0876bbc0.js"
+    "static/css/main.78e4beb4.css",
+    "static/js/main.d672d8ce.js"
   ]
 }
