@@ -12,7 +12,6 @@ const Recipe = () => {
       );
       const data = await response.json();
       setRecipe(data.meals[0]);
-      console.log(recipe);
     };
     fetchAPI();
   }, [id]);

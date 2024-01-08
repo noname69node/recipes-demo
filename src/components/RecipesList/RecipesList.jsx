@@ -1,47 +1,45 @@
 import "./RecipeList.css";
 import React, { useEffect, useState } from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 
 const RecipesList = ({ category }) => {
-  const { catId } = useParams();
-
   let cat = category;
-
-  //console.log(category);
 
   const [isLoading, setIsLoading] = useState(false);
   const [recipes, setRecipes] = useState([]);
-  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
 
-    const fetchAPICategory = async () => {
+    const fetchAPIRandomCategory = async () => {
       const catResponse = await fetch(
         "https://www.themealdb.com/api/json/v1/1/categories.php"
       );
       const catData = await catResponse.json();
-      return catData.categories[Math.floor(Math.random() * categories.length)]
-        .strCategory;
+
+      return catData.categories[
+        Math.floor(Math.random() * catData.categories.length)
+      ].strCategory;
     };
 
-    async function fetchAPI() {
+    const fetchAPI = async () => {
       if (category === undefined) {
-        console.log(category);
-        cat = await fetchAPICategory();
+        cat = await fetchAPIRandomCategory();
       }
+
       const response = await fetch(
         "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + cat
       );
-      const data = await response.json();
-      const shuffled = [...data.meals].sort(() => 0.5 - Math.random());
-      // console.log(data.meals);
+
+      const recData = await response.json();
+      const shuffled = [...recData.meals].sort(() => 0.5 - Math.random());
 
       setRecipes(shuffled.slice(0, 6));
       setIsLoading(false);
-    }
+    };
+
     fetchAPI();
   }, [category]);
 
