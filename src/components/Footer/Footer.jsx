@@ -2,7 +2,6 @@ import "./Footer.css";
 import React from "react";
 import Subscribe from "../Subscribe/Subscribe";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../Logo/Logo";
 
 const Footer = () => {
   return (

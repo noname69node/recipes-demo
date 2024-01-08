@@ -13,7 +13,10 @@ function App() {
     <>
       <Header></Header>
       <Routes>
-        <Route index element={<Home />} />
+        <Route path="/" element={<Home />}>
+          <Route path="category/:catName" element={<Home />} />
+        </Route>
+
         {/* <Route path="/recipes" element={<Recipe />}>
           <Route path="recipe/:id" element={<Recipe />} />
         </Route> */}

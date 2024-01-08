@@ -1,7 +1,5 @@
 import React from "react";
-import Logo from "../Logo/Logo";
 import Nav from "../Nav/Nav";
-import { PersonFill, Search } from "react-bootstrap-icons";
 
 const Header = () => {
   return (
