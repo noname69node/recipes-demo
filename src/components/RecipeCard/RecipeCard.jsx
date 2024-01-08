@@ -27,7 +27,7 @@ const RecipeCard = ({ recipe: { idMeal, strMealThumb, strMeal } }) => {
 
         <div className="card-body">
           <h3 className="card-title">{strMeal}</h3>
-          <Link to={`/recipes/recipe/${idMeal}`}>View Recipe</Link>
+          <Link to={`/recipe/${idMeal}`}>View Recipe</Link>
         </div>
       </div>
     </div>

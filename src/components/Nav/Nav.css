@@ -1,18 +1,21 @@
-.navbartop ul {
+.navbar ul {
     font-size: 20px;
     align-items: center;
 }
 
-.navbartop ul li {
+.navbar ul li {
     list-style: none;
 }
 
-.navbartop ul li a {
+.navbar ul li a {
     text-decoration: none;
     font-weight: 400;
-    color: black
+    color: black;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
 }
 
-.navbartop ul li a.active {
+.navbar ul li a.active {
     color: #046e1b;
+    background-color: white;
 }

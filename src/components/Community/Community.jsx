@@ -1,11 +1,11 @@
 import React from "react";
 
-const Comunity = () => {
+const Community = () => {
   return (
     <div className="container">
-      <h2>Comunity</h2>
+      <h2>Community</h2>
     </div>
   );
 };
 
-export default Comunity;
+export default Community;

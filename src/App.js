@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Recipe from "./components/Recipe/Recipe";
 import About from "./components/About/About";
-import Comunity from "./components/Comunity/Comunity";
+import Community from "./components/Community/Community";
 import NotFound from "./components/NotFound/NotFound";
 
 function App() {
@@ -14,11 +14,12 @@ function App() {
       <Header></Header>
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/recipes" element={<Recipe />}>
+        {/* <Route path="/recipes" element={<Recipe />}>
           <Route path="recipe/:id" element={<Recipe />} />
-        </Route>
+        </Route> */}
+        <Route path="/recipe/:id" element={<Recipe />} />
         <Route path="/about" element={<About />} />
-        <Route path="/comunity" element={<Comunity />} />
+        <Route path="/community" element={<Community />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>
