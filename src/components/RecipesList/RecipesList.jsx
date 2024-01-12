@@ -1,90 +1,67 @@
 import "./RecipeList.css";
 import React, { useEffect, useState } from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
-import { Link } from "react-router-dom";
-import { ThreeDots } from "react-loader-spinner";
 
-const RecipesList = ({ category }) => {
-  let cat = category;
-
-  const [isLoading, setIsLoading] = useState(false);
+const RecipesList = ({ category, searchTerm }) => {
   const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    setIsLoading(true);
+  const fetchRecipes = async () => {
+    try {
+      setLoading(true);
+      const apiBaseURL = "https://www.themealdb.com/api/json/v1/1/";
 
-    const fetchAPIRandomCategory = async () => {
-      const catResponse = await fetch(
-        "https://www.themealdb.com/api/json/v1/1/categories.php"
-      );
-      const catData = await catResponse.json();
+      let apiUri = apiBaseURL;
 
-      return catData.categories[
-        Math.floor(Math.random() * catData.categories.length)
-      ].strCategory;
-    };
-
-    const fetchAPI = async () => {
-      if (category === undefined) {
-        cat = await fetchAPIRandomCategory();
+      if (searchTerm) {
+        apiUri += `search.php?s=${searchTerm}`;
       }
 
-      const response = await fetch(
-        "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + cat
-      );
+      if (category) {
+        apiUri += `filter.php?c=${category}`;
+      }
 
-      const recData = await response.json();
-      const shuffled = [...recData.meals].sort(() => 0.5 - Math.random());
+      console.log("search: " + searchTerm);
+      console.log("category: " + category);
+      console.log(apiUri);
 
-      setRecipes(shuffled.slice(0, 6));
-      setIsLoading(false);
-    };
+      const response = await fetch(apiUri);
+      const data = await response.json();
 
-    fetchAPI();
-  }, [category]);
+      if (data.meals) {
+        const shuffledRecipes = [...data.meals]
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 6);
+
+        setRecipes(shuffledRecipes);
+      } else setRecipes([]);
+    } catch (error) {
+      console.log(error);
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchRecipes();
+  }, [category, searchTerm]);
 
   return (
-    <section className="recipe-list container mb-5">
-      <div className="d-flex justify-content-between align-items-end mb-5">
-        <div>
-          <h1>Discover, Create, Share </h1>
-          <h4>Check our most popular recipes of this week</h4>
-        </div>
-        <div className="ms-auto align-self-center">
-          <Link to="/" className="btn btn-warning btn-lg">
-            See All
-          </Link>
-        </div>
-      </div>
+    <div className="container mb-5">
+      <h2 className="mb-3">{`Recipes from ${category} category`}</h2>
 
-      <div className="container mb-5">
-        <h2>
-          {cat
-            ? `Recipes from ${cat} category`
-            : "Recipes from random category"}
-        </h2>
-      </div>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
 
       <div className="recipes-list row row-cols-1 row-cols-md-3 g-5">
-        {isLoading ? (
-          <ThreeDots
-            visible={true}
-            height="80"
-            width="80"
-            color="#f79f1a"
-            radius="9"
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
-        ) : (
-          recipes &&
+        {recipes &&
           recipes.map((recipe) => (
             <RecipeCard key={recipe.idMeal} recipe={recipe} />
-          ))
-        )}
+          ))}
       </div>
-    </section>
+    </div>
   );
 };
 
