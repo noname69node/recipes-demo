@@ -7,44 +7,44 @@ const RecipesList = ({ category, searchTerm }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchRecipes = async () => {
-    try {
-      setLoading(true);
-      const apiBaseURL = "https://www.themealdb.com/api/json/v1/1/";
-
-      let apiUri = apiBaseURL;
-
-      if (searchTerm) {
-        apiUri += `search.php?s=${searchTerm}`;
-      }
-
-      if (category) {
-        apiUri += `filter.php?c=${category}`;
-      }
-
-      console.log("search: " + searchTerm);
-      console.log("category: " + category);
-      console.log(apiUri);
-
-      const response = await fetch(apiUri);
-      const data = await response.json();
-
-      if (data.meals) {
-        const shuffledRecipes = [...data.meals]
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 6);
-
-        setRecipes(shuffledRecipes);
-      } else setRecipes([]);
-    } catch (error) {
-      console.log(error);
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        setLoading(true);
+        const apiBaseURL = "https://www.themealdb.com/api/json/v1/1/";
+
+        let apiUri = apiBaseURL;
+        let slice = 6;
+
+        if (searchTerm) {
+          apiUri += `search.php?s=${searchTerm}`;
+        }
+
+        if (category) {
+          apiUri += `filter.php?c=${category}`;
+        }
+
+        console.log("search: " + searchTerm);
+        console.log("category: " + category);
+        console.log(apiUri);
+
+        const response = await fetch(apiUri);
+        const data = await response.json();
+
+        if (data.meals) {
+          const shuffledRecipes = [...data.meals]
+            .sort(() => 0.5 - Math.random())
+            .slice(0, searchTerm ? data.meals.length : 6);
+
+          setRecipes(shuffledRecipes);
+        } else setRecipes([]);
+      } catch (error) {
+        console.log(error);
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchRecipes();
   }, [category, searchTerm]);
 

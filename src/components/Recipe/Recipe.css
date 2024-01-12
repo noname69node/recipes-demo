@@ -1,0 +1,27 @@
+.center-cropped {
+    width: auto;
+    height: 400px;
+    overflow: hidden;
+}
+
+.center-cropped img {
+    height: auto;
+    min-width: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%) translateY(-20%);
+}
+
+.card-info {
+    height: 40px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.70);
+}
+
+.card-info span {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
